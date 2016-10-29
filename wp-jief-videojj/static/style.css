@@ -1,0 +1,8 @@
+.jief-upinfo { min-height: 80px; padding: 10px 10px 10px 90px; overflow: hidden; width: 100%; margin: 0 auto; position: relative; height: auto; border: 1px solid #e2e2e2; background-color: #fff; border-radius: 3px;  }
+.jief-u-face {  width: 68px; text-align: center; float: left; margin: 0 10px 0 0; top: 8px; left: 10px; position: absolute; }
+.jief-u-face img { display: block; height: 64px; width: 64px; border-radius: 64px; margin: 0 auto; border: 2px solid transparent; }
+.jief-r-info { float: left; position: relative; width: 100%;  }
+.jief-r-usname { line-height: 26px; font-size: 16px; color: #00a1d6; font-weight: bold; }
+.jief-r-sign { color: #333; line-height: 20px; font-size: 14px; }
+.jief-videojj-player{ width:100%; margin:0 auto; }
+.jief-videojj-warning { color: #8a6d3b; background-color: #fcf8e3; padding: 10px; margin-bottom: 10px; border: 1px solid #faebcc; border-radius: 3px;}
