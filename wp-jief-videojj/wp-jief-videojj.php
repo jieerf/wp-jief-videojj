@@ -140,29 +140,29 @@ class JiefVideo{
         /* 新版，官方推荐使用，待测试稳定性 */
         $video_html = sprintf('<link rel="stylesheet" href="%1$s" type="text/css" media="screen">', JIEFVIDEOJJ_URL . '/static/style.css?ver=' . JIEFVIDEOJJ_VERSION);
         $video_html .= '<div class="jief-videojj-warning">如无法播放，请重新刷新页面哦！</div>';
-        $video_html .= '<div id="_jief_videojj_player" class="jief-videojj-player" style="height:'.$height.'px;"></div>
-        <script type="text/javascript" src="http://cytron.cdn.videojj.com/latest/cytron.core.js"></script>
-        <script type="text/javascript">
-        var ivaInstance = new Iva( "_jief_videojj_player", {
-            appkey: "'.$appkey.'",
-            video: "'.$url.'",
-            editorEnable: false,
-            vorEnable: false,
-            vorStartGuideEnable: false
-        });
-        </script>';
-        return $video_html;
-        /* 旧版 */
-        // return '<div id="_jief_videojj_player" class="jief-videojj-player" style="height:'.$height.'px;"></div>
-        // <script type="text/javascript" src="http://7xjfim.com2.z0.glb.qiniucdn.com/Iva.js"></script>
+        // $video_html .= '<div id="_jief_videojj_player" class="jief-videojj-player" style="height:'.$height.'px;"></div>
+        // <script type="text/javascript" src="http://cytron.cdn.videojj.com/latest/cytron.core.js"></script>
         // <script type="text/javascript">
         // var ivaInstance = new Iva( "_jief_videojj_player", {
         //     appkey: "'.$appkey.'",
         //     video: "'.$url.'",
-        //     title: "",
-        //     cover: ""
+        //     editorEnable: false,
+        //     vorEnable: false,
+        //     vorStartGuideEnable: false
         // });
         // </script>';
+        /* 旧版 */
+        $video_html .= '<div id="_jief_videojj_player" class="jief-videojj-player" style="height:'.$height.'px;"></div>
+        <script type="text/javascript" src="http://7xjfim.com2.z0.glb.qiniucdn.com/Iva.js"></script>
+        <script type="text/javascript">
+        var ivaInstance = new Iva( "_jief_videojj_player", {
+            appkey: "'.$appkey.'",
+            video: "'.$url.'",
+            title: "",
+            cover: ""
+        });
+        </script>';
+        return $video_html;
     }
     
     // 短代码的处理方法
