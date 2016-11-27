@@ -116,7 +116,7 @@ class JiefVideo{
     }
 
     // 获得iframe控件
-    private function _get_iframe( $url = '', $height = '', $atts ) {
+    private function _get_iframe( $url = '', $height = '', $atts = array() ) {
         $style .= "width: 100%; padding-bottom:10px;";
         if(!empty($height)){
             $style .= "height: {$height}px;";
@@ -131,37 +131,37 @@ class JiefVideo{
     }
 
     // 获得Video++播放器
-    private function _get_videojj( $url = '', $atts ) {
+    private function _get_videojj( $url = '', $atts = array() ) {
         //extract(shortcode_atts(array("title"=>''),$atts));
         $option = $this->_get_option_json();
         $appkey = $option['appkey'];
-        $height = $this->_is_mobile() ? 300 : 540 ;
+        $height = $this->_is_mobile() ? 300 : 550 ;
 
-        /* 新版，官方推荐使用，待测试稳定性 */
         $video_html = sprintf('<link rel="stylesheet" href="%1$s" type="text/css" media="screen">', JIEFVIDEOJJ_URL . '/static/style.css?ver=' . JIEFVIDEOJJ_VERSION);
         $video_html .= '<div class="jief-videojj-warning">如无法播放，请重新刷新页面哦！</div>';
-        // $video_html .= '<div id="_jief_videojj_player" class="jief-videojj-player" style="height:'.$height.'px;"></div>
-        // <script type="text/javascript" src="http://cytron.cdn.videojj.com/latest/cytron.core.js"></script>
-        // <script type="text/javascript">
-        // var ivaInstance = new Iva( "_jief_videojj_player", {
-        //     appkey: "'.$appkey.'",
-        //     video: "'.$url.'",
-        //     editorEnable: false,
-        //     vorEnable: false,
-        //     vorStartGuideEnable: false
-        // });
-        // </script>';
-        /* 旧版 */
+        /* 新版 */
         $video_html .= '<div id="_jief_videojj_player" class="jief-videojj-player" style="height:'.$height.'px;"></div>
-        <script type="text/javascript" src="http://7xjfim.com2.z0.glb.qiniucdn.com/Iva.js"></script>
+        <script type="text/javascript" src="http://cytron.cdn.videojj.com/latest/cytron.core.js"></script>
         <script type="text/javascript">
         var ivaInstance = new Iva( "_jief_videojj_player", {
             appkey: "'.$appkey.'",
             video: "'.$url.'",
-            title: "",
-            cover: ""
+            editorEnable: false,
+            vorEnable: false,
+            vorStartGuideEnable: false
         });
         </script>';
+        /* 旧版 */
+        // $video_html .= '<div id="_jief_videojj_player" class="jief-videojj-player" style="height:'.$height.'px;"></div>
+        // <script type="text/javascript" src="http://7xjfim.com2.z0.glb.qiniucdn.com/Iva.js"></script>
+        // <script type="text/javascript">
+        // var ivaInstance = new Iva( "_jief_videojj_player", {
+        //     appkey: "'.$appkey.'",
+        //     video: "'.$url.'",
+        //     title: "",
+        //     cover: ""
+        // });
+        // </script>';
         return $video_html;
     }
     
